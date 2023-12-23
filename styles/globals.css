@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,4 +13,20 @@ body{
 
 html{
   @apply h-full
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-zinc-900 h-full overflow-x-hidden;
+}
+
+#__next {
+  @apply h-full
+}
+
+html{
+  @apply h-full
+>>>>>>> e892d88 (favorite list)
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
@@ -16,3 +17,23 @@ const useBillboard = () => {
 }
 
 export default useBillboard
+=======
+import useSWR from 'swr'
+
+import fetcher from '@/lib/fetcher'
+
+const useBillboard = () => {
+  const { data, error, isLoading } = useSWR('/api/random', fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  })
+  return {
+    data,
+    error,
+    isLoading,
+  }
+}
+
+export default useBillboard
+>>>>>>> e892d88 (favorite list)

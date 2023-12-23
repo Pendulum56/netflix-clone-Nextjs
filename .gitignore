@@ -6,6 +6,11 @@
 .pnp.js
 .yarn/install-state.gz
 
+<<<<<<< HEAD
+=======
+
+*.mp4
+>>>>>>> e892d88 (favorite list)
 # testing
 /coverage
 
