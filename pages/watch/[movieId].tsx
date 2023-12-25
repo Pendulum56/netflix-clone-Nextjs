@@ -1,37 +1,33 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import prismadb from '@/libs/prisma.db'
-import serverAuth from '@/libs/serverAuth'
+import React from "react";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
+import useMovie from "@/hooks/useMovie";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  try {
-    if (req.method !== 'GET') {
-      return res.status(405).end()
-    }
+const Watch = () => {
+  const router = useRouter();
+  const { movieId } = router.query;
 
-    await serverAuth(req, res)
+  const { data } = useMovie(movieId as string);
 
-    const { movieId } = req.query
+  return (
+    <div className="h-screen w-screen bg-black">
+      <nav className="fixed w-full p-4 z-10 flex flex-row items-center gap-8 bg-black bg-opacity-70">
+        <ArrowLeftIcon
+          onClick={() => router.push("/")}
+          className="w-4 md:w-10 text-white cursor-pointer hover:opacity-80 transition"
+        />
+        <p className="text-white text-1xl md:text-3xl font-bold">
+          <span className="font-light">Watching:</span> {data?.title}
+        </p>
+      </nav>
+      <video
+        className="h-full w-full"
+        autoPlay
+        controls
+        src={data?.videoUrl}
+      ></video>
+    </div>
+  );
+};
 
-    if (typeof movieId !== 'string') {
-      throw new Error('Invalid Id')
-    }
-
-    if (!movieId) {
-      throw new Error('Missing Id')
-    }
-
-    const movies = await prismadb.movie.findUnique({
-      where: {
-        id: movieId,
-      },
-    })
-
-    return res.status(200).json(movies)
-  } catch (error) {
-    console.log(error)
-    return res.status(500).end()
-  }
-}
+export default Watch;
