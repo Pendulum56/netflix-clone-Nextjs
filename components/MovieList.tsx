@@ -1,9 +1,10 @@
 import { isEmpty } from "lodash";
 import React from "react";
 import MovieCard from "./MovieCard";
+import { MovieInterface } from "@/types";
 
 interface MovieListProps {
-  data: Record<string, any>[];
+  data: MovieInterface[];
   title: string;
 }
 const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
