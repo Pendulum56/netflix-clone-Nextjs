@@ -9,27 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.1",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/client": "^5.7.1",
     "axios": "^1.6.2",
     "bcrypt": "^5.1.1",
-<<<<<<< HEAD
-=======
     "lodash": "^4.17.21",
->>>>>>> e892d88 (favorite list)
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-<<<<<<< HEAD
-=======
     "@types/lodash": "^4.14.202",
->>>>>>> e892d88 (favorite list)
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
